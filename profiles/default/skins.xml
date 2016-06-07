@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins"
+        meta_type="Plone Skins Tool"
+        allow_any="False"
+        cookie_persistence="False"
+        request_varname="plone_skin">
+
+ <object name="ploneshows_images"
+         meta_type="Filesystem Directory View"
+         directory="PloneShows/skins/ploneshows_images"/>
+ <object name="ploneshows_styles"
+         meta_type="Filesystem Directory View"
+         directory="PloneShows/skins/ploneshows_styles"/>
+ <object name="ploneshows_templates"
+         meta_type="Filesystem Directory View"
+         directory="PloneShows/skins/ploneshows_templates"/>
+ 
+ <skin-path name="*">
+  <layer insert-after="custom" 
+         name="ploneshows_images"/>
+  <layer insert-after="custom" 
+         name="ploneshows_styles"/>
+  <layer insert-after="custom" 
+         name="ploneshows_templates"/>
+ </skin-path>
+
+</object>

@@ -1,0 +1,248 @@
+# -*- coding: utf-8 -*-
+#
+# File: Season.py
+#
+# Copyright (c) 2009 by []
+# Generator: ArchGenXML Version 2.4.1
+#            http://plone.org/products/archgenxml
+#
+# GNU General Public License (GPL)
+#
+
+__author__ = """unknown <unknown>"""
+__docformat__ = 'plaintext'
+
+from AccessControl import ClassSecurityInfo
+from Products.Archetypes.atapi import *
+from zope.interface import implements
+import interfaces
+
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
+
+from Products.ATContentTypes.content.folder import ATFolder
+from Products.ATContentTypes.content.folder import ATFolderSchema
+from Products.ATContentTypes.content.document import ATDocument
+from Products.ATContentTypes.content.document import ATDocumentSchema
+from Products.PloneShows.config import *
+
+##code-section module-header #fill in your manual code here
+from DateTime import DateTime
+##/code-section module-header
+
+schema = Schema((
+
+    DateTimeField(
+        name='donorRenewalStartDate',
+        widget=DateTimeField._properties['widget'](
+            label='Donorrenewalstartdate',
+            label_msgid='PloneShows_label_donorRenewalStartDate',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    DateTimeField(
+        name='seasonRenewalStartDate',
+        widget=DateTimeField._properties['widget'](
+            label='Seasonrenewalstartdate',
+            label_msgid='PloneShows_label_seasonRenewalStartDate',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    DateTimeField(
+        name='seasonNewStartDate',
+        widget=DateTimeField._properties['widget'](
+            label='Seasonnewstartdate',
+            label_msgid='PloneShows_label_seasonNewStartDate',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    DateTimeField(
+        name='individualTixStartDate',
+        widget=DateTimeField._properties['widget'](
+            label='Individualtixstartdate',
+            label_msgid='PloneShows_label_individualTixStartDate',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    ImageField(
+        name='donorRenewalImage',
+        widget=ImageField._properties['widget'](
+            label='Donorrenewalimage',
+            label_msgid='PloneShows_label_donorRenewalImage',
+            i18n_domain='PloneShows',
+        ),
+        storage=AttributeStorage(),
+        sizes={'small':(110,220)},
+    ),
+    ImageField(
+        name='seasonRenewalImage',
+        widget=ImageField._properties['widget'](
+            label='Seasonrenewalimage',
+            label_msgid='PloneShows_label_seasonRenewalImage',
+            i18n_domain='PloneShows',
+        ),
+        storage=AttributeStorage(),
+        sizes={'small':(110,220)},
+    ),
+    ImageField(
+        name='seasonNewImage',
+        widget=ImageField._properties['widget'](
+            label='Seasonnewimage',
+            label_msgid='PloneShows_label_seasonNewImage',
+            i18n_domain='PloneShows',
+        ),
+        storage=AttributeStorage(),
+        sizes={'small':(110,220)},
+    ),
+    ImageField(
+        name='individualTixImage',
+        widget=ImageField._properties['widget'](
+            label='Individualtiximage',
+            label_msgid='PloneShows_label_individualTixImage',
+            i18n_domain='PloneShows',
+        ),
+        storage=AttributeStorage(),
+        sizes={'small':(110,220)},
+    ),
+    StringField(
+        name='donorRenewalLinkText',
+        widget=StringField._properties['widget'](
+            label='Donorrenewallinktext',
+            label_msgid='PloneShows_label_donorRenewalLinkText',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    StringField(
+        name='seasonRenewalLinkText',
+        widget=StringField._properties['widget'](
+            label='Seasonrenewallinktext',
+            label_msgid='PloneShows_label_seasonRenewalLinkText',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    StringField(
+        name='seasonNewLinkText',
+        widget=StringField._properties['widget'](
+            label='Seasonnewlinktext',
+            label_msgid='PloneShows_label_seasonNewLinkText',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    StringField(
+        name='individualTixLinkText',
+        widget=StringField._properties['widget'](
+            label='Individualtixlinktext',
+            label_msgid='PloneShows_label_individualTixLinkText',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    StringField(
+        name='donorRenewalLink',
+        widget=StringField._properties['widget'](
+            label='Donorrenewallink',
+            label_msgid='PloneShows_label_donorRenewalLink',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    StringField(
+        name='seasonRenewalLink',
+        widget=StringField._properties['widget'](
+            label='Seasonrenewallink',
+            label_msgid='PloneShows_label_seasonRenewalLink',
+            i18n_domain='PloneShows',
+        ),
+    ),
+    StringField(
+        name='seasonNewLink',
+        widget=StringField._properties['widget'](
+            label='Seasonnewlink',
+            label_msgid='PloneShows_label_seasonNewLink',
+            i18n_domain='PloneShows',
+        ),
+    ),
+
+),
+)
+
+##code-section after-local-schema #fill in your manual code here
+##/code-section after-local-schema
+
+Season_schema = ATFolderSchema + ATDocumentSchema.copy() + \
+    schema.copy()
+
+##code-section after-schema #fill in your manual code here
+##/code-section after-schema
+
+class Season(ATFolder, ATDocument):
+    """
+    """
+    security = ClassSecurityInfo()
+
+    implements(interfaces.ISeason)
+
+    meta_type = 'Season'
+    _at_rename_after_creation = True
+
+    schema = Season_schema
+
+    ##code-section class-header #fill in your manual code here
+    ##/code-section class-header
+
+    # Methods
+
+    security.declarePublic('getLinkText')
+    def getLinkText(self):
+        """ Returns the appropriate Link Text based on date
+        """
+	linkText = ""
+	now = DateTime()
+	if now > self.getDonorRenewalStartDate():
+	    linkText = self.getDonorRenewalLinkText()
+	if now > self.getSeasonRenewalStartDate():
+	    linkText = self.getSeasonRenewalLinkText()
+	if now > self.getSeasonNewStartDate():
+	    linkText = self.getSeasonNewLinkText()
+	if now > self.getIndividualTixStartDate():
+	    linkText = self.getIndividualTixLinkText()
+        return linkText
+
+    security.declarePublic('getLink')
+    def getLink(self):
+        """ Returns the appropriate Link based on date
+        """
+	link=""
+	now = DateTime()
+	if now > self.getDonorRenewalStartDate():
+	    link = self.getDonorRenewalLink()
+	if now > self.getSeasonRenewalStartDate():
+	    link = self.getSeasonRenewalLink()
+	if now > self.getSeasonNewStartDate():
+	    link = self.getSeasonNewLink()
+	if now > self.getIndividualTixStartDate():
+	    link = None
+        return link
+
+    security.declarePublic('getSeasonImage')
+    def getSeasonImage(self, scale=None):
+        """ Returns the appropriate Image based on date
+        """
+        image=None
+	now = DateTime()
+	if now > self.getDonorRenewalStartDate():
+	    image = self.getDonorRenewalImage(scale)
+	if now > self.getSeasonRenewalStartDate():
+	    image = self.getSeasonRenewalImage(scale)
+	if now > self.getSeasonNewStartDate():
+	    image = self.getSeasonNewImage(scale)
+	if now > self.getIndividualTixStartDate():
+	    image = self.getIndividualTixImage(scale)
+        return image
+
+
+registerType(Season, PROJECTNAME)
+# end of class Season
+
+##code-section module-footer #fill in your manual code here
+##/code-section module-footer
+
+
+

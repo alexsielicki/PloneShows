@@ -1,0 +1,226 @@
+# archgenxml generated POT File
+# unknown <unknown>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneShows\n"
+"POT-Creation-Date: Thu May 28 16:24:49 2009\n"
+"PO-Revision-Date: Thu May 28 16:24:49 2009\n"
+"Last-Translator: unknown <unknown>\n"
+"Language-Team: unknown <unknown>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: PloneShows\n"
+
+#. Default: "Date when donors can no longer renew their subscription"
+#: content/Season.py
+msgid "PloneShows_help_donorRenewalEndDate"
+msgstr ""
+
+#. Default: "Link image for donor renewals"
+#: content/Season.py
+msgid "PloneShows_help_donorRenewalImage"
+msgstr ""
+
+#. Default: "Link address for donor renewals"
+#: content/Season.py
+msgid "PloneShows_help_donorRenewalLink"
+msgstr ""
+
+#. Default: "Link text for donor renewals"
+#: content/Season.py
+msgid "PloneShows_help_donorRenewalLinkText"
+msgstr ""
+
+#. Default: "Date when donors can start renewing their subscription"
+#: content/Season.py
+msgid "PloneShows_help_donorRenewalStartDate"
+msgstr ""
+
+#. Default: "Link image for individual tickets"
+#: content/Season.py
+msgid "PloneShows_help_individualTixImage"
+msgstr ""
+
+#. Default: "Link address for individual tickets"
+#: content/Show.py
+msgid "PloneShows_help_individualTixLink"
+msgstr ""
+
+#. Default: "Link text for individual ticket purchases"
+#: content/Season.py
+msgid "PloneShows_help_individualTixLinkText"
+msgstr ""
+
+#. Default: "Date when visitors can start buying individual tickets"
+#: content/Season.py
+#: content/Show.py
+msgid "PloneShows_help_individualTixStartDate"
+msgstr ""
+
+#. Default: "Date when new subscribers can no longer purchase season tickets"
+#: content/Season.py
+msgid "PloneShows_help_seasonNewEndDate"
+msgstr ""
+
+#. Default: "Link image for new subscriptions"
+#: content/Season.py
+msgid "PloneShows_help_seasonNewImage"
+msgstr ""
+
+#. Default: "Link address for new subscriptions"
+#: content/Season.py
+msgid "PloneShows_help_seasonNewLink"
+msgstr ""
+
+#. Default: "Link text for new subscriptions"
+#: content/Season.py
+msgid "PloneShows_help_seasonNewLinkText"
+msgstr ""
+
+#. Default: "Date when new subscribers can start purchasing season tickets"
+#: content/Season.py
+msgid "PloneShows_help_seasonNewStartDate"
+msgstr ""
+
+#. Default: "Date when subscribers can no longer renew their season tickets"
+#: content/Season.py
+msgid "PloneShows_help_seasonRenewalEndDate"
+msgstr ""
+
+#. Default: "Link image for subscription renewals"
+#: content/Season.py
+msgid "PloneShows_help_seasonRenewalImage"
+msgstr ""
+
+#. Default: "Link address for subscription renewals"
+#: content/Season.py
+msgid "PloneShows_help_seasonRenewalLink"
+msgstr ""
+
+#. Default: "Link text for subscription renewals"
+#: content/Season.py
+msgid "PloneShows_help_seasonRenewalLinkText"
+msgstr ""
+
+#. Default: "Date when subscribers can start renewing their season tickets"
+#: content/Season.py
+msgid "PloneShows_help_seasonRenewalStartDate"
+msgstr ""
+
+#. Default: "Check this to indicate that this performance is sold out."
+#: content/Performance.py
+msgid "PloneShows_help_soldOut"
+msgstr ""
+
+#. Default: "Donor Renewal End Date"
+#: content/Season.py
+msgid "PloneShows_label_donorRenewalEndDate"
+msgstr ""
+
+#. Default: "Donorrenewalimage"
+#: content/Season.py
+msgid "PloneShows_label_donorRenewalImage"
+msgstr ""
+
+#. Default: "Donorrenewallink"
+#: content/Season.py
+msgid "PloneShows_label_donorRenewalLink"
+msgstr ""
+
+#. Default: "Donorrenewallinktext"
+#: content/Season.py
+msgid "PloneShows_label_donorRenewalLinkText"
+msgstr ""
+
+#. Default: "Donorrenewalstartdate"
+#: content/Season.py
+msgid "PloneShows_label_donorRenewalStartDate"
+msgstr ""
+
+#. Default: "Individualtiximage"
+#: content/Season.py
+msgid "PloneShows_label_individualTixImage"
+msgstr ""
+
+#. Default: "Individualtixlink"
+#: content/Show.py
+msgid "PloneShows_label_individualTixLink"
+msgstr ""
+
+#. Default: "Individualtixlinktext"
+#: content/Season.py
+msgid "PloneShows_label_individualTixLinkText"
+msgstr ""
+
+#. Default: "Individualtixstartdate"
+#: content/Season.py
+#: content/Show.py
+msgid "PloneShows_label_individualTixStartDate"
+msgstr ""
+
+#. Default: "Photo"
+#: content/Show.py
+#: content/alextest.py
+msgid "PloneShows_label_photo"
+msgstr ""
+
+#. Default: "New Subscription End Date"
+#: content/Season.py
+msgid "PloneShows_label_seasonNewEndDate"
+msgstr ""
+
+#. Default: "Seasonnewimage"
+#: content/Season.py
+msgid "PloneShows_label_seasonNewImage"
+msgstr ""
+
+#. Default: "Seasonnewlink"
+#: content/Season.py
+msgid "PloneShows_label_seasonNewLink"
+msgstr ""
+
+#. Default: "Seasonnewlinktext"
+#: content/Season.py
+msgid "PloneShows_label_seasonNewLinkText"
+msgstr ""
+
+#. Default: "Seasonnewstartdate"
+#: content/Season.py
+msgid "PloneShows_label_seasonNewStartDate"
+msgstr ""
+
+#. Default: "Subscription Renewal End Date"
+#: content/Season.py
+msgid "PloneShows_label_seasonRenewalEndDate"
+msgstr ""
+
+#. Default: "Seasonrenewalimage"
+#: content/Season.py
+msgid "PloneShows_label_seasonRenewalImage"
+msgstr ""
+
+#. Default: "Seasonrenewallink"
+#: content/Season.py
+msgid "PloneShows_label_seasonRenewalLink"
+msgstr ""
+
+#. Default: "Seasonrenewallinktext"
+#: content/Season.py
+msgid "PloneShows_label_seasonRenewalLinkText"
+msgstr ""
+
+#. Default: "Seasonrenewalstartdate"
+#: content/Season.py
+msgid "PloneShows_label_seasonRenewalStartDate"
+msgstr ""
+
+#. Default: "Soldout"
+#: content/Performance.py
+msgid "PloneShows_label_soldOut"
+msgstr ""
+
