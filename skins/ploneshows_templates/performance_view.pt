@@ -11,7 +11,9 @@
     <tal:main-macro metal:define-macro="main" 
          tal:define="kssClassesView context/@@kss_field_decorator_view;
                      getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                     templateId template/getId">
+                     templateId template/getId;
+                     toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                     here_url context/@@plone_context_state/object_url;">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 

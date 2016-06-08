@@ -7,12 +7,14 @@
 <body>
 
 <metal metal:define-macro="relatedItems">
-<tal:allowed condition="isViewTemplate">
+<tal:allowed condition="view/isViewTemplate|nothing">
 <tal:relatedItems tal:define="related python:here.portal_type=='Performance' and here.aq_parent.computeRelatedItems() or here.computeRelatedItems();">
 <tal:block tal:condition="python:related">
             
 <div class="relatedItems"
-    tal:define="getInfoFor python:wtool.getInfoFor;">
+    tal:define="getInfoFor python:wtool.getInfoFor;
+                normalizeString nocall:context/@@plone/normalizeString;
+                wtool context/portal_workflow;">
                 <div class="visualClear" id="clear-space-before-relatedItemBox"><!-- --></div>
                 <div id="relatedItemBox">
                     <h2 i18n:translate="label_related_items">You May Also Like</h2>
