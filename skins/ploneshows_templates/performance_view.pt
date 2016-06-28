@@ -25,7 +25,7 @@
             </metal:field>
         </h1>
 
-	<div class="soldOut"
+	<div class="soldOutPerformance"
 	     tal:condition="here/getSoldOut|nothing">
 	Sold Out
 	</div>
