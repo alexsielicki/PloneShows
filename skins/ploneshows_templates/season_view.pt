@@ -100,6 +100,10 @@
                         <img src="" alt=""
                              tal:condition="exists:item/image_preview"
                              tal:replace="structure python: path('nocall:item/tag')(scale='preview', css_class='tileImage')" />
+                        <img 
+                          tal:condition="item/getImagePopejoyTallThumbnail"
+                          tal:define="scales item/@@images;"
+                          tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=193, height=260, direction='down')"/>
                     </a>
 
                     <h2 class="tileHeadline"

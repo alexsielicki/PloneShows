@@ -32,13 +32,22 @@ from Products.ATContentTypes.content.newsitem import ATNewsItemSchema
 from Products.CMFCore.permissions import View
 from Products.ATContentTypes.content.document import ATDocumentBase
 from DateTime import DateTime
+from Products.ATContentTypes.configuration import zconf
+from Products.validation import V_REQUIRED
+from Products.ATContentTypes import ATCTMessageFactory as _
 ##/code-section module-header
 
 copied_fields = {}
 copied_fields['image'] = ATNewsItemSchema['image'].copy()
 copied_fields['image'].sizes = {'large':(768, 768), 'wideheader':(637, 300), 'preview':(400, 400), 'mini':(200, 200), 'thumb':(128, 128), 'tile':(64, 64), 'icon':(32, 32), 'listing':(16, 16),}
+copied_fields['image'].required = True
+copied_fields['image'].widget.label = 'Header Image'
+copied_fields['image'].widget.description = 'Horizontal header image displayed on show and performance pages.'
 copied_fields['imageCaption'] = ATNewsItemSchema['imageCaption'].copy()
 copied_fields['imageCaption'].widget.visible = 0
+# copied_fields['imagePopejoySeasonListing'] = ATNewsItemSchema['image'].copy()
+# copied_fields['imagePopejoySeasonListing'].name = 'imagePopejoySeasonListing'
+# copied_fields['imagePopejoySeasonListing'].sizes = {'large':(768, 768), 'wideheader':(637, 300), 'preview':(400, 400), 'mini':(200, 200), 'thumb':(128, 128), 'tile':(64, 64), 'icon':(32, 32), 'listing':(16, 16),}
 schema = Schema((
 
     DateTimeField(
@@ -65,6 +74,29 @@ schema = Schema((
 
     copied_fields['imageCaption'],
 
+    ImageField(
+        'imagePopejoyTallThumbnail',
+        required=True,
+        storage=AnnotationStorage(migrate=True),
+        languageIndependent=True,
+        max_size=zconf.ATNewsItem.max_image_dimension,
+        sizes={'large': (768, 768),
+               'tallthumbnail': (193, 260),
+               'preview': (400, 400),
+               'mini': (200, 200),
+               'thumb': (128, 128),
+               'tile': (64, 64),
+               'icon': (32, 32),
+               'listing': (16, 16),
+               },
+        validators=(('isNonEmptyFile', V_REQUIRED),
+                    ('checkNewsImageMaxSize', V_REQUIRED)),
+        widget=ImageWidget(
+            description='Vertical thumbnail image displayed on season page and homepage.',
+            label='Thumbnail Image',
+            show_content_type=False)
+    ),
+
 
 ),
 )
@@ -76,6 +108,7 @@ Show_schema = ATFolderSchema + ATNewsItemSchema.copy() + \
     schema.copy()
 
 ##code-section after-schema #fill in your manual code here
+Show_schema.moveField('imagePopejoyTallThumbnail', after='image')
 ##/code-section after-schema
 
 class Show(ATFolder, ATNewsItem):
