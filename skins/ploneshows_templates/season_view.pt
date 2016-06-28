@@ -16,13 +16,18 @@
                                   normalizeString nocall:context/@@plone/normalizeString;
                                   wtool context/portal_workflow;">
 
+<h1 class="documentFirstHeading">
+  Upcoming Shows
+</h1>
+
 <div id="past-season" 
-    tal:define="previousUnexpiredSeasonAndShows context/getPreviousUnexpiredSeason|nothing;
-		previousUnexpiredSeason nocall:previousUnexpiredSeasonAndShows/season|nothing;
-		upcomingShowsFromPastSeason previousUnexpiredSeasonAndShows/shows|nothing;
-		use_view_action site_properties/typesUseViewActionInListings|python:();" 
-    tal:condition="upcomingShowsFromPastSeason">
-<h1 tal:content="previousUnexpiredSeason/Title">[previous unexpired season title]</h1>
+  tal:define="previousUnexpiredSeasonAndShows context/getPreviousUnexpiredSeason|nothing;
+	previousUnexpiredSeason nocall:previousUnexpiredSeasonAndShows/season|nothing;
+	upcomingShowsFromPastSeason previousUnexpiredSeasonAndShows/shows|nothing;
+	use_view_action site_properties/typesUseViewActionInListings|python:();" 
+  tal:condition="upcomingShowsFromPastSeason">
+  
+  <h1 tal:content="previousUnexpiredSeason/Title">[previous unexpired season title]</h1>
 
     <tal:showDefinition tal:define="upcomingShows upcomingShowsFromPastSeason;">
     <tal:showListing metal:use-macro="context/season_view/macros/showListing" />
@@ -32,9 +37,7 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <h1 metal:use-macro="here/kss_generic_macros/macros/generic_title_view">
-            Title or id
-        </h1>
+        <h1 class="currentSeasonTitle" tal:content="context/Title">[current season title]</h1>
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
