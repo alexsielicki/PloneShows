@@ -84,7 +84,7 @@ window.addEvent('domready', startGallery);
 <div id="homepage-this-season-wrapper">
 <div id="homepage-this-season">
 
-<ul id="season-links">
+<!-- <ul id="season-links">
 <li><a href="#" 
 	tal:define="currentSeason context/getCurrentSeason|nothing;
 		    currentSeasonUrl currentSeason/getURL|nothing;" 
@@ -92,7 +92,7 @@ window.addEvent('domready', startGallery);
 </li>
 <li><a href="/tickets/season-tickets" tal:attributes="href string:${portal_url}/tickets/season-tickets">Buy season tickets</a>
 </li>
-</ul>
+</ul> -->
 
 <h2>Upcoming Shows</h2>
 
@@ -101,24 +101,32 @@ window.addEvent('domready', startGallery);
 	tal:condition="performances">
 <div class="performance" tal:repeat="performance performances">
 <a href="#" tal:attributes="href performance/getURL|performance/absolute_url;">
-                        <img src="" alt=""
-                             tal:condition="exists:performance/aq_parent/image_preview"
-                             tal:replace="structure python: path('nocall:performance/tag')(scale='wideheader', css_class='homepagePerformanceImage')" />
+                        <img 
+                          tal:condition="performance/aq_parent/getImagePopejoyTallThumbnail"
+                          tal:define="scales performance/aq_parent/@@images;"
+                          tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=193, height=260, direction='down')"/>
                     </a>
 
 <div class="performanceTickets"><a href="#" tal:attributes="href performance/getURL|performance/absolute_url;"></a></div>
 <div class="performanceText">
-<h3>
-	<a href="#" tal:attributes="href performance/getURL|performance/absolute_url;"
-		tal:content="performance/Title">[Performance Title]</a>
-</h3>
+  <h3>
+  	<a href="#" tal:attributes="href performance/getURL|performance/absolute_url;"
+  		tal:content="performance/Title">[Performance Title]</a>
+  </h3>
 
-<tal:startDate tal:define="startDay  python:performance.start().Day();
-                           startDate python:performance.start().pCommon();">
-<div class="performanceDate" tal:content="string: ${startDay}, ${startDate}">[Performance Date]</div>
-</tal:startDate>
+  <tal:startDate tal:define="startDay  python:performance.start().Day();
+                             startDate python:performance.start().pCommon();">
+    <div class="performanceDate" tal:content="string: ${startDay}, ${startDate}">[Performance Date]</div>
+  </tal:startDate>
 
-<div class="performanceDescription" tal:content="python: performance.aq_parent.Description()">[Performance Description]</div>
+  <!-- <div class="performanceDescription" tal:content="python: performance.aq_parent.Description()">[Performance Description]</div> -->
+
+  <div class="tileFooter">
+    <a href="#"
+      tal:attributes="href performance/getURL|performance/absolute_url;">
+      Tickets and Info &raquo;
+    </a>
+  </div>
 </div>
 <div class="visualClear"><!-- --></div>
 </div>
