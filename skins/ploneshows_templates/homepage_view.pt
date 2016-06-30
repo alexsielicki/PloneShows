@@ -18,37 +18,42 @@
 <div id="homepage-slideshow"
 	tal:define="header_images context/components/homepage-slideshow/getFolderContents|nothing;">
 	
-<script src="/smooth/mootools.v1.11.js" type="text/javascript" tal:attributes="src string:${portal_url}/smooth/mootools.v1.11.js"></script>
-<script src="/smooth/jd.gallery.js" type="text/javascript" tal:attributes="src string:${portal_url}/smooth/jd.gallery.js"></script> 
-<link rel="stylesheet" href="/smooth/jd.gallery.css" type="text/css" media="screen" tal:attributes="href string:${portal_url}/smooth/jd.gallery.css"/>
+  <script src="/smooth/mootools.v1.11.js" type="text/javascript" 
+    tal:attributes="src string:${portal_url}/smooth/mootools.v1.11.js"></script>
+  <script src="/smooth/jd.gallery.js" type="text/javascript" 
+    tal:attributes="src string:${portal_url}/smooth/jd.gallery.js"></script> 
+  <link rel="stylesheet" href="/smooth/jd.gallery.css" type="text/css" media="screen" 
+    tal:attributes="href string:${portal_url}/smooth/jd.gallery.css"/>
 	
-<div id="myGallery">
+  <div id="myGallery">
 
-<tal:gallery tal:repeat="item header_images">
-<div class="imageElement">
-<a href="#" class="open" tal:attributes="href string:${portal_url}${item/Description};">
-<img src="someimage.jpg" class="full" alt=""
-    tal:attributes="src item/getURL|item/absolute_url;
-                    alt item/Title|nothing;" />
-</a>
-</div>
-</tal:gallery>
+    <tal:gallery tal:repeat="item header_images">
+      <div class="imageElement">
+        <a href="#" class="open" tal:attributes="href string:${portal_url}${item/Description};">
+          <img src="someimage.jpg" class="full" alt=""
+            tal:attributes="src item/getURL|item/absolute_url;
+                            alt item/Title|nothing;" />
+        </a>
+      </div>
+    </tal:gallery>
 
-</div> 
+  </div> 
 
-<script type="text/javascript">
-function startGallery() {
-var myGallery = new gallery($('myGallery'), {
-timed: true,
-showArrows: false,
-showCarousel: false,
-showInfopane: false,
-delay: 3500,
-embedLinks: true
-});
-}
-window.addEvent('domready', startGallery);
-</script> 
+  <script type="text/javascript">
+    function startGallery() {
+      // first we move the slideshow into its appropriate location
+    jQuery("#homepage-slideshow").appendTo("#slideshow-popejoy-target");
+      var myGallery = new gallery($('myGallery'), {
+        timed: true,
+        showArrows: false,
+        showCarousel: false,
+        showInfopane: false,
+        delay: 3500,
+        embedLinks: true
+      });
+    }
+    window.addEvent('domready', startGallery);
+  </script> 
 </div>
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
