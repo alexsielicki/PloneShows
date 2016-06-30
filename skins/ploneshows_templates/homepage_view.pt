@@ -15,7 +15,7 @@
                        text here/getText;
                        portal_url context/@@plone_portal_state/portal_url;">
 
-<div id="homepage-slideshow"
+<div id="homepage-slideshow-js-component"
 	tal:define="header_images context/components/homepage-slideshow/getFolderContents|nothing;">
 	
   <script src="/smooth/mootools.v1.11.js" type="text/javascript" 
@@ -42,7 +42,7 @@
   <script type="text/javascript">
     function startGallery() {
       // first we move the slideshow into its appropriate location
-    jQuery("#homepage-slideshow").appendTo("#slideshow-popejoy-target");
+    jQuery("#homepage-slideshow-js-component").appendTo("#slideshow-popejoy-target");
       var myGallery = new gallery($('myGallery'), {
         timed: true,
         showArrows: false,
