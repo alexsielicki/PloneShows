@@ -99,7 +99,10 @@
 </li>
 </ul> -->
 
-<h2>Upcoming Shows</h2>
+<div id="view-full-season">
+  <a href="#">View Full Season &raquo;</a>
+</div>
+<h2 id="upcoming-shows-header">Upcoming Shows</h2>
 
 <div id="performance-listing-homepage"
 	tal:define="performances context/getHomepageUpcomingShows"
