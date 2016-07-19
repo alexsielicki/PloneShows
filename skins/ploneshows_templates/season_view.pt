@@ -29,9 +29,11 @@
   
   <h1 tal:content="previousUnexpiredSeason/Title">[previous unexpired season title]</h1>
 
-    <tal:showDefinition tal:define="upcomingShows upcomingShowsFromPastSeason;">
+  <tal:showDefinition tal:define="upcomingShows upcomingShowsFromPastSeason;">
     <tal:showListing metal:use-macro="context/season_view/macros/showListing" />
-    </tal:showDefinition>
+  </tal:showDefinition>
+
+  <div class="visualClear"><!-- --></div>
 
 </div>
 
@@ -164,6 +166,8 @@
 
             </tal:block>
 	    </tal:showListing>
+
+<div class="visualClear"><!-- --></div>
 
 <div id="past-shows" tal:condition="pastShows">
 <h1>Earlier This Season</h1>
