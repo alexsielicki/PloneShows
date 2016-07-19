@@ -100,7 +100,10 @@
 </ul> -->
 
 <div id="view-full-season">
-  <a href="#">View Full Season &raquo;</a>
+  <a href="#"
+    tal:attributes="href python: context.getCurrentSeason().getURL();">
+    View Full Season &raquo;
+  </a>
 </div>
 <h2 id="upcoming-shows-header">Upcoming Shows</h2>
 
