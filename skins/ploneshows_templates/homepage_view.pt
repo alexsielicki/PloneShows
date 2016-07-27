@@ -99,6 +99,10 @@
 </li>
 </ul> -->
 
+<div id="performance-listing-homepage"
+	tal:define="performances context/getHomepageUpcomingShows"
+	tal:condition="performances">
+
 <div id="view-full-season">
   <a href="#"
     tal:attributes="href python: context.getCurrentSeason().getURL();">
@@ -107,9 +111,6 @@
 </div>
 <h2 id="upcoming-shows-header">Upcoming Shows</h2>
 
-<div id="performance-listing-homepage"
-	tal:define="performances context/getHomepageUpcomingShows"
-	tal:condition="performances">
 <div class="performance" tal:repeat="performance performances">
 <a href="#" tal:attributes="href performance/getURL|performance/absolute_url;">
                         <img 
