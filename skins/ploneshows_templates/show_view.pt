@@ -104,8 +104,8 @@
 	><span
 	    tal:define="startDate performance/start;
 	                weekday startDate/aDay;
-	                commonDate startDate/pCommon;
-	                formattedDate string:${weekday}. ${commonDate};
+	                commonDate startDate/aCommon;
+	                formattedDate string:${weekday}, ${commonDate};
                   soldOutDate python: 'soldOutDate' if performance.getSoldOut() else '';"
       tal:attributes="class string: performanceStart ${soldOutDate}"
 	    tal:content="formattedDate"
@@ -135,8 +135,8 @@
 	<span
     tal:define="startDate performance/start;
                 weekday startDate/aDay;
-                commonDate startDate/pCommon;
-                formattedDate string:${weekday}. ${commonDate};
+                commonDate startDate/aCommon;
+                formattedDate string:${weekday}, ${commonDate};
                 soldOutDate python: 'soldOutDate' if performance.getSoldOut() else '';"
 	 tal:content="formattedDate"
    tal:attributes="class string: performanceStart ${soldOutDate}"

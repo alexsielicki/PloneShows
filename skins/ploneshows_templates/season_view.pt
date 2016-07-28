@@ -130,7 +130,7 @@
                       <!-- <span class="runTimeLabel">Date:</span> -->
                       <span class="performanceFirst" 
                         tal:define="firstPerf python:allPerfs[0].start;
-                                    formattedDate python: firstPerf.strftime('%b. %d, %Y');"
+                                    formattedDate python: firstPerf.strftime('%b %d, %Y');"
                         tal:content="formattedDate"
                         >[First Performance Date]</span>
       
@@ -141,7 +141,7 @@
                           tal:condition="performancesOnDiffDays">
                       -
                       <span class="performanceLast" 
-                          tal:define="formattedDate python: lastPerf.strftime('%b. %d, %Y');"
+                          tal:define="formattedDate python: lastPerf.strftime('%b %d, %Y');"
                           tal:content="formattedDate"
                           >[Last Performance Date]</span>
                       </tal:moreThanOnePerformance>
@@ -195,7 +195,7 @@
           <!-- <span class="runTimeLabel">Date:</span> -->
           <span class="performanceFirst" 
             tal:define="firstPerf python:allPerfs[0].start;
-                        formattedDate python: firstPerf.strftime('%b. %d, %Y');"
+                        formattedDate python: firstPerf.strftime('%b %d, %Y');"
             tal:content="formattedDate"
             >[First Performance Date]</span>
         
@@ -206,7 +206,7 @@
             tal:condition="performancesOnDiffDays">
             -
             <span class="performanceLast" 
-              tal:define="formattedDate python: lastPerf.strftime('%b. %d, %Y');"
+              tal:define="formattedDate python: lastPerf.strftime('%b %d, %Y');"
               tal:content="formattedDate"
               >[Last Performance Date]</span>
           </tal:moreThanOnePerformance>

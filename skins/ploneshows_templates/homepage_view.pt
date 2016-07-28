@@ -127,7 +127,7 @@
   </h3>
 
   <tal:startDate tal:define="startDay  python:performance.start().Day();
-                             startDate python:performance.start().pCommon();">
+                             startDate python:performance.start().aCommon();">
     <div class="performanceDate" tal:content="string: ${startDay}, ${startDate}">[Performance Date]</div>
   </tal:startDate>
 
