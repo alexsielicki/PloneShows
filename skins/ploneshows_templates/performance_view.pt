@@ -60,7 +60,7 @@
 
         <img src="" alt=""
             tal:condition="here/getImage|nothing"
-            tal:replace="structure python: path('nocall:context/tag')(scale='wideheader', css_class='headerWideImage')" />
+            tal:replace="structure python: path('nocall:context/tag')(css_class='headerWideImage')" />
               
         <div tal:replace="structure provider:plone.abovecontentbody" />
 

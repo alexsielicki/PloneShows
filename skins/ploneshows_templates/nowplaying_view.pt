@@ -57,7 +57,7 @@
 
 <img src="" alt=""
             tal:condition="nextPerformance/getImage|nothing"
-            tal:replace="structure python: path('nocall:nextPerformance/tag')(scale='wideheader', css_class='headerWideImage')" />
+            tal:replace="structure python: path('nocall:nextPerformance/tag')(css_class='headerWideImage')" />
    
 <tal:show tal:define="show nocall: nextPerformance/aq_inner/aq_parent;">
 <tal:starburst metal:use-macro="context/show_view/macros/allStarbursts" />
