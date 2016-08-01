@@ -30,8 +30,8 @@
         </p>
 
         <img src="" alt=""
-            tal:condition="exists:context/image_wideheader"
-            tal:replace="structure python: path('nocall:context/tag')(scale='wideheader', css_class='headerWideImage')" />
+            tal:condition="exists:context/image"
+            tal:replace="structure python: path('nocall:context/tag')(css_class='headerWideImage')" />
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
