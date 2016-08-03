@@ -112,6 +112,14 @@
                           tal:define="scales item/@@images;"
                           tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=193, height=260, direction='down')"/>
                     </a>
+                    
+                    <p class="tileFooter">
+                        <a href=""
+                           tal:attributes="href python:test(item_type in use_view_action, item_url+'/view', item_url);"
+                           i18n:translate="read_more">
+                        Tickets and Info &raquo;
+                        </a>
+                    </p>
 
                     <h2 class="tileHeadline"
                         metal:define-macro="listitem">
@@ -145,14 +153,6 @@
                           tal:content="formattedDate"
                           >[Last Performance Date]</span>
                       </tal:moreThanOnePerformance>
-                    </p>
-
-                    <p class="tileFooter">
-                        <a href=""
-                           tal:attributes="href python:test(item_type in use_view_action, item_url+'/view', item_url);"
-                           i18n:translate="read_more">
-                        Tickets and Info &raquo;
-                        </a>
                     </p>
 
                     <p class="tileBody">

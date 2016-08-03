@@ -123,6 +123,13 @@
 
     <div class="performanceTickets"><a href="#" tal:attributes="href performance/getURL|performance/absolute_url;"></a></div>
     <div class="performanceText">
+      <div class="tileFooter">
+        <a href="#"
+          tal:attributes="href performance/getURL|performance/absolute_url;">
+          Tickets and Info &raquo;
+        </a>
+      </div>
+      
       <h3>
       	<a href="#" tal:attributes="href performance/getURL|performance/absolute_url;"
       		tal:content="performance/Title">[Performance Title]</a>
@@ -134,13 +141,6 @@
       </tal:startDate>
 
       <!-- <div class="performanceDescription" tal:content="python: performance.aq_parent.Description()">[Performance Description]</div> -->
-
-      <div class="tileFooter">
-        <a href="#"
-          tal:attributes="href performance/getURL|performance/absolute_url;">
-          Tickets and Info &raquo;
-        </a>
-      </div>
     </div>
     <div class="visualClear"><!-- --></div>
   </div>
