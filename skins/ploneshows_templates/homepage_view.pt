@@ -38,7 +38,7 @@
       </tal:images>
     </ul>
   </div>
-  
+
 </div>
 
 <script type="text/javascript">
@@ -50,7 +50,7 @@ var carousel = jQuery('#carousel').jcarousel({
     wrap: 'circular',
   })
   .jcarouselAutoscroll({
-    interval: 3500,
+    interval: 5500,
     target: '+=1',
     autostart: true
   });
