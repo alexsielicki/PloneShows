@@ -104,9 +104,7 @@
                                             class="explain"
                                             tal:content="python:toLocalizedTime(context.start(), time_only=1)">Start Time</span>
                                 </span> 
-                                <br />
                                 to
-                                <br />
                                 <span
                                       tal:define="kss_class python:getKssClasses('endDate',
                                                   templateId=templateId, macro='enddatesame-field-view');"
