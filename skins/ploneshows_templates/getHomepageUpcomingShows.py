@@ -1,7 +1,7 @@
 limit = 4
 parentIds = []
 upcomingShows = []
-performances = context.queryCatalog({'portal_type':'Performance', 'sort_on':'start', 'start': {'query': DateTime(), 'range': 'min'}})
+performances = context.queryCatalog({'portal_type':'Performance', 'review_state':'published', 'sort_on':'start', 'start': {'query': DateTime(), 'range': 'min'}})
 for performance in performances:
     performanceObject = performance.getObject()
     performanceParentUID = performanceObject.aq_inner.aq_parent.UID()
