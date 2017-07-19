@@ -133,26 +133,30 @@
 
                     </h2>
 
-                    <p tal:define="allPerfs python: item.getFolderContents({ 'portal_type': 'Performance', 'sort_on': 'start', });"
-                      tal:condition="allPerfs">
-                      <!-- <span class="runTimeLabel">Date:</span> -->
-                      <span class="performanceFirst" 
-                        tal:define="firstPerf python:allPerfs[0].start;
-                                    formattedDate python: firstPerf.strftime('%b %d, %Y');"
-                        tal:content="formattedDate"
-                        >[First Performance Date]</span>
-      
-                      <tal:moreThanOnePerformance
-                          tal:define="firstPerf              python: allPerfs[0].start;
-                          lastPerf             python: allPerfs[-1].start;
-                          performancesOnDiffDays python: firstPerf.earliestTime().notEqualTo(lastPerf.earliestTime());"
-                          tal:condition="performancesOnDiffDays">
-                      -
-                      <span class="performanceLast" 
-                          tal:define="formattedDate python: lastPerf.strftime('%b %d, %Y');"
+                    <p>
+                      <tal:showDates 
+                        metal:define-macro="showDates"
+                        tal:define="allPerfs python: item.getFolderContents({ 'portal_type': 'Performance', 'sort_on': 'start', });"
+                        tal:condition="allPerfs">
+                        <!-- <span class="runTimeLabel">Date:</span> -->
+                        <span class="performanceFirst" 
+                          tal:define="firstPerf python:allPerfs[0].start;
+                                      formattedDate python: firstPerf.strftime('%b %d, %Y');"
                           tal:content="formattedDate"
-                          >[Last Performance Date]</span>
-                      </tal:moreThanOnePerformance>
+                          >[First Performance Date]</span>
+        
+                        <tal:moreThanOnePerformance
+                            tal:define="firstPerf              python: allPerfs[0].start;
+                                        lastPerf               python: allPerfs[-1].start;
+                                        performancesOnDiffDays python: firstPerf.earliestTime().notEqualTo(lastPerf.earliestTime());"
+                            tal:condition="performancesOnDiffDays">
+                        -
+                        <span class="performanceLast" 
+                            tal:define="formattedDate python: lastPerf.strftime('%b %d, %Y');"
+                            tal:content="formattedDate"
+                            >[Last Performance Date]</span>
+                        </tal:moreThanOnePerformance>
+                      </tal:showDates>
                     </p>
 
                     <p class="tileBody">

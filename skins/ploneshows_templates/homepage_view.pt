@@ -122,7 +122,9 @@ var carousel = jQuery('#carousel').jcarousel({
     </a>
 
     <div class="performanceTickets"><a href="#" tal:attributes="href performance/getURL|performance/absolute_url;"></a></div>
-    <div class="performanceText">
+    <div class="performanceText"
+        tal:define="item nocall: performance/aq_inner/aq_parent;"
+    >
       <div class="tileFooter">
         <a href="#"
           tal:attributes="href performance/getURL|performance/absolute_url;">
@@ -135,10 +137,22 @@ var carousel = jQuery('#carousel').jcarousel({
       		tal:content="performance/Title">[Performance Title]</a>
       </h3>
 
-      <tal:startDate tal:define="startDay  python:performance.start().Day();
+      <tal:disable tal:condition="nothing">
+      <!-- 
+        Patricia asked for the date to reflect the full run of the show, not just the date of the next upcoming performance.
+        Thus Alex is changing this to the code below, which reuses code from season_view to display the full run of the show. 
+      -->
+      <tal:startDate tal:define="item nocall: performance/aq_inner/aq_parent;
+                                 startDay  python:performance.start().Day();
                                  startDate python:performance.start().aCommon();">
         <div class="performanceDate" tal:content="string: ${startDay}, ${startDate}">[Performance Date]</div>
       </tal:startDate>
+      </tal:disable>
+
+      <!-- This displays the date range of the full show, not just the next upcoming performance. -->
+      <div class="performanceDate">
+        <tal:showDates metal:use-macro="here/season_view/macros/showDates" />
+      </div>
 
       <!-- <div class="performanceDescription" tal:content="python: performance.aq_parent.Description()">[Performance Description]</div> -->
     </div>
