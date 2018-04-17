@@ -118,7 +118,7 @@ var carousel = jQuery('#carousel').jcarousel({
       <img 
         tal:condition="performance/aq_parent/getImagePopejoyTallThumbnail"
         tal:define="scales performance/aq_parent/@@images;"
-        tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=193, height=260, direction='down')"/>
+        tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=579, height=780, direction='down')"/>
     </a>
 
     <div class="performanceTickets"><a href="#" tal:attributes="href performance/getURL|performance/absolute_url;"></a></div>

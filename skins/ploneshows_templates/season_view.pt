@@ -110,7 +110,7 @@
                         <img 
                           tal:condition="item/getImagePopejoyTallThumbnail"
                           tal:define="scales item/@@images;"
-                          tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=193, height=260, direction='down')"/>
+                          tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=579, height=780, direction='down')"/>
                     </a>
                     
                     <p class="tileFooter">
@@ -188,7 +188,7 @@
         <img 
           tal:condition="pastShow/getImagePopejoyTallThumbnail"
           tal:define="scales pastShow/@@images;"
-          tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=193, height=260, direction='down')"/>
+          tal:replace="structure python: scales.tag('imagePopejoyTallThumbnail', width=579, height=780, direction='down')"/>
     </a>
     <div class="pastShowDescription">
         <h2 class="tileHeadline"><a href="#" tal:content="pastShow/Title"
